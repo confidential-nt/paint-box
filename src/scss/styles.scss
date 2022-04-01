@@ -129,7 +129,7 @@ input:focus {
 
 .promote-section {
   @extend %backGroundImage;
-  background-image: url("/cat-1.jpg");
+  background-image: url("./cat-1.jpg");
   height: 910px;
   display: flex;
   flex-direction: column;
@@ -163,7 +163,7 @@ input:focus {
 }
 
 .promote-section__book-image {
-  background-image: url("/cat-1.jpg");
+  background-image: url("./cat-1.jpg");
   @extend %backGroundImage;
 }
 
