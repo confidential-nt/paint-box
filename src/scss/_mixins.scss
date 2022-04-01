@@ -1,0 +1,38 @@
+@import "_variables";
+
+@mixin headerAnimation($word) {
+  @keyframes scale-down-center {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(0.7);
+    }
+  }
+
+  @keyframes scale-down-center-reverse {
+    0% {
+      transform: scale(0.7);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @if $word == "normal" {
+    animation: scale-down-center $regularLogoTransition;
+  } @else {
+    animation: scale-down-center-reverse $regularLogoTransition;
+  }
+}
+
+@mixin buttonHover($color) {
+  @if $color == "white" {
+    background-color: #fff;
+    color: $fontColor;
+  } @else {
+    background-color: $fontColor;
+    color: #fff;
+  }
+}

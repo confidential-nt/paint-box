@@ -1,0 +1,508 @@
+@import url("https://use.typekit.net/wvh4hra.css");
+@import "_variables";
+@import "_elements";
+@import "_extends";
+@import "_mixins";
+@import "_animations";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: freighttextcmp-pro, serif;
+  padding: 0 $regularSpacing 0 $regularSpacing;
+  position: relative;
+}
+
+button {
+  all: unset;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+/*Header*/
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+
+  // padding: 60px 0 60px 0;
+  margin-top: 50px;
+
+  height: 120px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.headerFix {
+  position: sticky;
+  position: -webkit-sticky;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 0;
+  height: 90px;
+}
+
+.main-header__column {
+  ul {
+    display: flex;
+    align-items: center;
+
+    li {
+      &:first-child {
+        margin-right: 35px;
+      }
+
+      button {
+        background-color: transparent;
+        cursor: pointer;
+
+        i {
+          margin-right: 5px;
+        }
+      }
+
+      a {
+        @extend %anchor;
+      }
+    }
+  }
+}
+
+.header__logo {
+  color: #414141;
+  height: 58px;
+  left: 50%;
+  margin-left: -29px;
+  margin-top: -29px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+  width: 58px;
+  z-index: 11;
+  transform: translateX(50%);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scale-down-center {
+  top: 44px;
+  @include headerAnimation("normal");
+}
+
+.scale-down-center-reverse {
+  @include headerAnimation("reverse");
+}
+
+/*Main*/
+
+.promote-section {
+  @extend %backGroundImage;
+  background-image: url("/cat-1.jpg");
+  height: 910px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-bottom: $elementGap;
+
+  strong {
+    @extend %sectionDescStrong;
+  }
+
+  p {
+    @extend %sectionDescP;
+  }
+
+  button {
+    @extend %button;
+
+    &:hover {
+      @include buttonHover("white");
+    }
+  }
+}
+
+.promote-section__book {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 815px;
+  margin-bottom: $elementGap;
+}
+
+.promote-section__book-image {
+  background-image: url("/cat-1.jpg");
+  @extend %backGroundImage;
+}
+
+.promote-section__book__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: $fontColor;
+  background-color: $backgroundColor;
+  strong {
+    display: block;
+    @extend %sectionDescStrong;
+  }
+
+  p {
+    @extend %sectionDescP;
+  }
+
+  button {
+    @extend %buttonBlack;
+    justify-content: space-between;
+    padding: 0px 0 0px 30px;
+
+    &:hover {
+      @include buttonHover("black");
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding: 0 20px;
+      border-left: $border;
+    }
+  }
+}
+
+.add-to-cart__nail {
+  color: $fontColor;
+  margin-bottom: 90px;
+}
+
+.add-to-cart__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  strong {
+    @extend %anchor;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    @extend %sectionDescP;
+    margin-bottom: 0;
+    font-weight: 300;
+    font-size: 40px;
+  }
+}
+
+.add-to-cart__product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 150px;
+
+  img {
+    width: 100%;
+    height: 562px;
+  }
+}
+
+.add-to-cart__product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    @extend %anchor;
+    margin-bottom: 7px;
+  }
+
+  h2 {
+    @extend %sectionDescP;
+    white-space: nowrap;
+    margin-bottom: 0;
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  strong {
+    color: $opacity;
+    margin-bottom: 30px;
+  }
+
+  button {
+    @extend %buttonBlack;
+
+    &:hover {
+      @include buttonHover("black");
+    }
+  }
+}
+
+.promote-section__newest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $elementGap;
+  strong {
+    @extend %anchor;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    @extend %sectionDescP;
+    white-space: nowrap;
+    font-weight: 300;
+    font-size: 30px;
+  }
+
+  h1 + div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 65px;
+
+    img {
+      height: 127px;
+      width: 100px;
+    }
+  }
+
+  button {
+    @extend %buttonBlack;
+
+    &:hover {
+      @include buttonHover("black");
+    }
+  }
+}
+
+.promote-section__newest-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-right: $border;
+  position: relative;
+  cursor: pointer;
+
+  &:last-child {
+    border: none;
+  }
+
+  span {
+    color: $opacity;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.promote-section__story {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin-bottom: $elementGap;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundColor;
+
+    & > a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      .date {
+        opacity: 0.8;
+        margin-bottom: 45px;
+      }
+
+      h1 {
+        @extend %sectionDescP;
+        white-space: nowrap;
+        font-weight: 300;
+        font-size: 35px;
+      }
+
+      .go-to-read {
+        @extend %anchor;
+
+        &:hover i {
+          animation: arrowMove 250ms ease-in forwards;
+        }
+
+        i {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.join-conversation__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 450px;
+  margin-bottom: $elementGap;
+  strong {
+    @extend %anchor;
+    margin-bottom: 45px;
+  }
+
+  h1 {
+    @extend %sectionDescP;
+    white-space: nowrap;
+    font-weight: 300;
+    font-size: 47px;
+    line-height: 1.19;
+  }
+}
+
+.join-conversation__form {
+  width: 100%;
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 20px 60px 20px 0;
+    font-size: 50px;
+    font-weight: 200;
+    color: $opacity;
+    border-bottom: $border;
+
+    &::placeholder {
+      font-size: 50px;
+      font-weight: 200;
+      color: $opacity;
+    }
+  }
+
+  button {
+    border: $border;
+    padding: 12px;
+    position: absolute;
+    top: 35px;
+    right: 2px;
+    cursor: pointer;
+  }
+}
+
+.promote-section__instagram {
+  margin-bottom: 180px;
+}
+
+.promote-section__instagram-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 395px);
+  margin-bottom: 110px;
+}
+
+.promote-section__instagram-to {
+  @extend %backGroundImage;
+  transition: opacity 250ms ease-in;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.promote-section__instagram-id {
+  display: flex;
+  justify-content: center;
+
+  strong {
+    @extend %sectionDescP;
+    white-space: nowrap;
+    font-weight: 300;
+    font-size: 47px;
+
+    span {
+      color: $opacity;
+      letter-spacing: 1.0001px;
+    }
+  }
+}
+/*Footer*/
+
+.main-footer {
+  background-color: $backgroundColor;
+  margin-right: -$regularSpacing;
+  margin-left: -$regularSpacing;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px $regularSpacing 60px $regularSpacing;
+
+  nav {
+    padding: 0 280px 0 280px;
+    text-align: center;
+    &:nth-child(2) {
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+    }
+
+    h4 {
+      @extend %anchor;
+      opacity: 0.5;
+      margin-bottom: 30px;
+    }
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        @extend %anchor;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+/*height 나 width 정할 때 vh나 퍼센트로 하면 더 좋음..padding이나 margin도 그렇게 해도 됨...그래야 responsive할 수 있음*
+/*footer만 padding 빼줘야 하는 문제가 있었는데 노마드는 body > *:not(.footer)  이렇개 해서 footer만 패딩을 안 줆*/
+/*자바스크립트는 나중에*/
